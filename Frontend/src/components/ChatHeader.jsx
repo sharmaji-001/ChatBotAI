@@ -80,7 +80,7 @@ export default function ChatHeader({ onClear, hasMessages, sessionId, startedAt,
         </div>
         <div className="header-info">
           <h1 className="header-title">Chat with Raptbot</h1>
-          <p className="header-sub">Sandy</p>
+          <p className="header-sub">Rapt AI</p>
         </div>
       </div>
 
