@@ -1,0 +1,490 @@
+/* ============================================================
+   RAPTBOT ENTERPRISE — MAIN CHAT THEME
+   Dual-Shade Light: Deep Navy Structure + Sky Blue Energy
+   FIXED v3: Nuclear text contrast override · Production Ready
+============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ============================================================
+   DESIGN TOKENS
+============================================================ */
+:root {
+  --navy-950: #060d1a;
+  --navy-900: #0f2044;
+  --navy-800: #162c5e;
+  --navy-700: #1e3d80;
+  --navy-600: #2a52a8;
+  --navy-500: #3d6bbf;
+  --navy-400: #6090e0;
+  --navy-300: #94b8f0;
+  --navy-100: #dce8fb;
+  --navy-50:  #eef4ff;
+
+  --sky-700:  #0369a1;
+  --sky-600:  #0284c7;
+  --sky-500:  #0ea5e9;
+  --sky-400:  #38bdf8;
+  --sky-300:  #7dd3fc;
+  --sky-200:  #bae6fd;
+  --sky-100:  #e0f2fe;
+  --sky-50:   #f0f9ff;
+
+  --surface-page:    #f4f7fd;
+  --surface-base:    #ffffff;
+  --surface-raised:  #f8fafd;
+  --surface-muted:   #eaf1fb;
+  --surface-overlay: #e2eef9;
+  --surface-card:    #ffffff;
+
+  /* ── TEXT — WCAG AA compliant on white ── */
+  --text-primary:   #0d1b2e;
+  --text-secondary: #1a3461;
+  --text-body:      #1e2d42;
+  --text-muted:     #3d5475;
+  --text-subtle:    #546e8a;
+  --text-ghost:     #7a96b2;
+
+  --border-light:  #dde7f5;
+  --border-medium: #c8d9f0;
+  --border-strong: #a0bce0;
+
+  --brand-primary: #2a52a8;
+  --brand-accent:  #0ea5e9;
+  --brand-soft:    #eef4ff;
+
+  --gradient-brand:      linear-gradient(135deg, #162c5e 0%, #0ea5e9 100%);
+  --gradient-brand-soft: linear-gradient(135deg, #2a52a8 0%, #38bdf8 100%);
+  --gradient-brand-vivid:linear-gradient(135deg, #0f2044 0%, #2a52a8 40%, #38bdf8 100%);
+  --gradient-sky:        linear-gradient(135deg, #0ea5e9 0%, #7dd3fc 100%);
+  --gradient-page:       linear-gradient(160deg, #f0f9ff 0%, #eef4ff 50%, #f4f8ff 100%);
+
+  --shadow-sm:    0 2px 8px rgba(14,60,140,.07), 0 1px 2px rgba(14,60,140,.04);
+  --shadow-md:    0 8px 28px rgba(14,60,140,.11), 0 3px 8px rgba(14,60,140,.06);
+  --shadow-lg:    0 20px 50px rgba(14,60,140,.13), 0 8px 16px rgba(14,60,140,.07);
+  --shadow-sky:   0 6px 24px rgba(14,165,233,.28);
+  --shadow-navy:  0 6px 24px rgba(42,82,168,.28);
+  --shadow-brand: 0 6px 24px rgba(42,82,168,.22), 0 2px 8px rgba(14,165,233,.15);
+
+  --radius-bubble: 14px;
+  --radius-avatar: 10px;
+  --radius-card:   16px;
+  --radius-pill:   999px;
+  --radius-sm:     6px;
+  --radius-md:     10px;
+
+  --font-ui:   'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-out:    cubic-bezier(.22, 1, .36, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --t:           0.20s;
+  --t-fast:      0.12s;
+}
+
+/* ============================================================
+   GLOBAL BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-ui);
+  background: var(--gradient-page);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 40% at 70% 0%, rgba(14,165,233,.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 30% at 0% 100%, rgba(42,82,168,.08) 0%, transparent 55%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ============================================================
+   SCROLLBAR
+============================================================ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: var(--radius-pill); }
+::-webkit-scrollbar-thumb:hover { background: var(--navy-400); }
+
+/* ============================================================
+   WELCOME CONTAINER
+============================================================ */
+.welcome-container {
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 26px 28px 22px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  animation: wcSlideDown .5s var(--ease-out) both;
+}
+.welcome-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-brand);
+}
+.welcome-container::after {
+  content: '';
+  position: absolute;
+  top: -70px; right: -50px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(14,165,233,.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+.welcome-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -.3px;
+  line-height: 1.25;
+}
+.welcome-title span {
+  background: var(--gradient-brand-vivid);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: wcGradShift 5s linear infinite;
+}
+.welcome-subtitle {
+  font-size: 14.5px;
+  color: var(--text-body);
+  line-height: 1.68;
+  max-width: 520px;
+}
+
+/* ============================================================
+   MESSAGE ROW
+============================================================ */
+.message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+  animation: wcFadeUp .38s var(--ease-out) both;
+}
+.message-row.user { flex-direction: row-reverse; }
+.message-row:nth-child(1) { animation-delay: .04s; }
+.message-row:nth-child(2) { animation-delay: .09s; }
+.message-row:nth-child(3) { animation-delay: .14s; }
+.message-row:nth-child(4) { animation-delay: .19s; }
+.message-row:nth-child(5) { animation-delay: .24s; }
+.message-row:nth-child(6) { animation-delay: .29s; }
+
+/* ============================================================
+   AVATARS
+============================================================ */
+.msg-avatar {
+  width: 38px; height: 38px;
+  border-radius: var(--radius-avatar);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 15px; font-weight: 700;
+  cursor: default;
+  transition: transform var(--t) var(--ease-spring), box-shadow var(--t) ease;
+}
+.msg-avatar:hover { transform: scale(1.10); }
+
+.bot-avatar-sm {
+  background: var(--gradient-brand);
+  color: #ffffff !important;
+  border: 2px solid rgba(255,255,255,.90);
+  box-shadow: var(--shadow-navy);
+}
+.bot-avatar-sm:hover { box-shadow: var(--shadow-sky); }
+
+.user-avatar-sm {
+  background: var(--surface-overlay);
+  color: var(--navy-700) !important;
+  border: 2px solid var(--border-medium);
+  box-shadow: var(--shadow-sm);
+  font-size: 13px;
+}
+
+/* ============================================================
+   CONTENT WRAPPER
+============================================================ */
+.msg-content-wrapper {
+  display: flex; flex-direction: column;
+  gap: 5px;
+  max-width: min(74%, 600px);
+}
+.message-row.user .msg-content-wrapper { align-items: flex-end; }
+
+/* ============================================================
+   SENDER LABEL
+============================================================ */
+.msg-sender-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: .7px;
+  text-transform: uppercase;
+  padding-left: 3px;
+}
+
+/* ============================================================
+   MESSAGE BUBBLES — BASE
+============================================================ */
+.msg-bubble {
+  padding: 14px 18px;
+  border-radius: var(--radius-bubble);
+  line-height: 1.70;
+  font-size: 14.5px;
+  transition: box-shadow var(--t) ease, transform var(--t-fast) var(--ease-out);
+}
+.msg-bubble:hover { transform: translateY(-1px); }
+
+/* ============================================================
+   BOT BUBBLE — NUCLEAR TEXT FIX
+   
+   The problem: your markdown renderer or a parent component
+   is injecting a light sky-blue color onto text elements.
+   
+   Solution: Use the highest-specificity selectors possible
+   WITH !important to guarantee #0d1b2e on every text node.
+============================================================ */
+.bubble-bot {
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  color: #0d1b2e !important;
+  border-bottom-left-radius: 4px;
+  box-shadow: var(--shadow-sm), inset 3px 0 0 var(--navy-600);
+  padding-left: 21px;
+}
+.bubble-bot:hover {
+  box-shadow: var(--shadow-md), inset 3px 0 0 var(--sky-500);
+}
+
+/* ── NUCLEAR OVERRIDE: every element inside bot bubble ────
+   These !important rules beat ANY specificity from your
+   markdown renderer, framework injected styles, or globals.
+   We explicitly allow strong/b to stay navy-dark & links sky.
+*/
+.bubble-bot * {
+  color: #0d1b2e !important;
+}
+
+/* Paragraphs and text nodes — deepest navy */
+.bubble-bot p,
+.bubble-bot span,
+.bubble-bot div,
+.bubble-bot li,
+.bubble-bot ul,
+.bubble-bot ol,
+.bubble-bot td,
+.bubble-bot th,
+.bubble-bot blockquote,
+.bubble-bot label {
+  color: #0d1b2e !important;
+}
+
+/* Headings — slightly lighter navy for visual hierarchy */
+.bubble-bot h1,
+.bubble-bot h2,
+.bubble-bot h3,
+.bubble-bot h4,
+.bubble-bot h5,
+.bubble-bot h6 {
+  color: #1a3461 !important;
+  font-weight: 700;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+/* Bold — deep navy for emphasis */
+.bubble-bot strong,
+.bubble-bot b {
+  color: #1a3461 !important;
+  font-weight: 700;
+}
+
+/* Links — sky blue (intentionally stand out) */
+.bubble-bot a,
+.bubble-bot .msg-text a {
+  color: #0284c7 !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(14,165,233,.40) !important;
+  text-underline-offset: 2px;
+}
+.bubble-bot a:hover {
+  color: #0ea5e9 !important;
+}
+
+/* Inline code — navy on light blue background */
+.bubble-bot code,
+.bubble-bot .msg-text code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--surface-muted) !important;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: #1e3d80 !important;
+}
+
+/* List spacing */
+.bubble-bot ul,
+.bubble-bot ol {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+.bubble-bot li { margin-bottom: 4px; }
+
+/* Paragraph spacing */
+.bubble-bot p { margin-bottom: 8px; }
+.bubble-bot p:last-child { margin-bottom: 0; }
+
+/* ============================================================
+   USER BUBBLE — WHITE TEXT on dark gradient
+============================================================ */
+.bubble-user {
+  background: var(--gradient-brand);
+  border: none;
+  color: #ffffff !important;
+  border-bottom-right-radius: 4px;
+  box-shadow: var(--shadow-brand);
+  position: relative;
+  overflow: hidden;
+}
+.bubble-user::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255,255,255,.12) 0%, transparent 100%);
+  pointer-events: none;
+}
+.bubble-user::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; bottom: 0;
+  width: 60%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+  transition: left .55s ease;
+  pointer-events: none;
+}
+.bubble-user:hover::after { left: 160%; }
+.bubble-user:hover { box-shadow: var(--shadow-sky), 0 8px 28px rgba(42,82,168,.20); }
+
+/* All text inside user bubble — pure white */
+.bubble-user *,
+.bubble-user p,
+.bubble-user span,
+.bubble-user li,
+.bubble-user strong,
+.bubble-user b,
+.bubble-user div {
+  color: #ffffff !important;
+}
+
+.bubble-user code {
+  background: rgba(255,255,255,.18) !important;
+  border-color: rgba(255,255,255,.25) !important;
+  color: #ffffff !important;
+}
+
+.bubble-user a {
+  color: rgba(255,255,255,.85) !important;
+  text-decoration-color: rgba(255,255,255,.35) !important;
+}
+
+/* ============================================================
+   MESSAGE TEXT
+============================================================ */
+.msg-text {
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: inherit;
+}
+
+/* ============================================================
+   META ROW
+============================================================ */
+.msg-meta {
+  display: flex; align-items: center;
+  gap: 8px; padding: 0 4px; margin-top: 2px;
+}
+.message-row.user .msg-meta { flex-direction: row-reverse; }
+
+.msg-time {
+  font-size: 10.5px;
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  letter-spacing: .2px;
+}
+
+.msg-speed {
+  font-family: var(--font-mono);
+  font-size: 10.5px; font-weight: 500;
+  color: var(--sky-700) !important;
+  background: var(--sky-50);
+  border: 1px solid rgba(14,165,233,.30);
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
+  letter-spacing: .1px;
+}
+
+/* ============================================================
+   COPY BUTTON
+============================================================ */
+.copy-btn {
+  display: inline-flex; align-items: center;
+  gap: 4px; background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-subtle) !important;
+  cursor: pointer; padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11.5px; font-family: var(--font-ui);
+  transition: background var(--t) ease, color var(--t) ease, border-color var(--t) ease, transform var(--t-fast) var(--ease-out);
+}
+.copy-btn:hover {
+  background: var(--sky-50);
+  border-color: rgba(14,165,233,.22);
+  color: var(--sky-700) !important;
+  transform: scale(1.07);
+}
+.copy-btn:active { transform: scale(.95); }
+.copy-btn.copied {
+  background: rgba(14,165,233,.08);
+  border-color: rgba(14,165,233,.28);
+  color: var(--sky-700) !important;
+}
+
+/* ============================================================
+   KEYFRAMES
+============================================================ */
+@keyframes wcFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes wcSlideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes wcGradShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 600px) {
+  .msg-content-wrapper { max-width: 86%; }
+  .welcome-container   { padding: 20px; }
+  .welcome-title       { font-size: 18px; }
+}

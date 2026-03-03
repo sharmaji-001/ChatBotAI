@@ -1,0 +1,144 @@
+/* ============================================================
+   MESSAGE LIST — ENTERPRISE PROFESSIONAL STYLE
+============================================================ */
+
+/* Only scrollable container */
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--surface-page);
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-medium) transparent;
+}
+
+/* Webkit Scrollbar */
+.message-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.message-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 6px;
+}
+
+.message-list::-webkit-scrollbar-thumb:hover {
+  background: #9aa4b2;
+}
+
+/* Inner spacing */
+.message-list-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 18px;
+  gap: 8px;
+}
+
+/* ============================================================
+   DATE DIVIDER — CLEAN PROFESSIONAL
+============================================================ */
+
+.date-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 14px;
+}
+
+.date-divider::before,
+.date-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
+}
+
+/* Professional divider label */
+.date-divider span {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  background: var(--surface-muted);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+/* ============================================================
+   ERROR BANNER — ENTERPRISE ALERT STYLE
+============================================================ */
+
+.error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff7f7;
+  border: 1px solid #f3c7c7;
+  border-left: 4px solid #d92d20; /* enterprise alert stripe */
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(217, 45, 32, 0.08);
+}
+
+/* Icon */
+.error-icon {
+  font-size: 14px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  color: #d92d20;
+}
+
+/* Error text */
+.error-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #7a1c1c;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* Retry Button — Professional */
+.retry-btn {
+  font-size: 12px;
+  font-weight: 600;
+  color: #d92d20;
+  background: #fff;
+  border: 1px solid #f3c7c7;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.retry-btn:hover {
+  background: #ffecec;
+  border-color: #e79a9a;
+}
+
+/* ============================================================
+   SUBTLE ANIMATIONS (Professional, Minimal)
+============================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

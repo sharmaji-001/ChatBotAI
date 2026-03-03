@@ -1,0 +1,93 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Salesforce Blues ── */
+  --sf-blue-dark:   #032D60;
+  --sf-blue:        #0070D2;
+  --sf-blue-light:  #1589EE;
+  --sf-sky:         #00A1E0;
+  --sf-sky-light:   #4BC7F4;
+
+  /* ── AWS Oranges ── */
+  --aws-orange:     #FF9900;
+  --aws-orange-dim: #CC7A00;
+  --aws-orange-glow:rgba(255, 153, 0, 0.18);
+
+  /* ── Neutrals ── */
+  --bg-deepest:     #050c36;
+  --bg-deep:        #0B1526;
+  --bg-panel:       #0F1E35;
+  --bg-card:        #132340;
+  --bg-hover:       #1A2E50;
+
+  /* ── Borders ── */
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-mid:     rgba(255, 255, 255, 0.1);
+  --border-sf:      rgba(0, 161, 224, 0.2);
+  --border-aws:     rgba(255, 153, 0, 0.25);
+
+  /* ── Text ── */
+  --text-primary:   #E8F4FD;
+  --text-secondary: #8BAFC8;
+  --text-muted:     #4A6FA5;
+
+  /* ── Shadows ── */
+  --shadow-window:  0 32px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 161, 224, 0.08);
+  --shadow-card:    0 8px 32px rgba(0, 0, 0, 0.35);
+  --shadow-orange:  0 4px 20px rgba(255, 153, 0, 0.25);
+  --shadow-blue:    0 4px 20px rgba(0, 112, 210, 0.3);
+
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-deepest);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 112, 210, 0.4);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 161, 224, 0.6);
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.2); }
+}
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40%           { transform: translateY(-5px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}

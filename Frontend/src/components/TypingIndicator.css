@@ -1,0 +1,60 @@
+.typing-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  animation: fadeSlideUp 0.3s ease both;
+  margin-bottom: 14px;
+}
+
+.typing-avatar {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0f3460, #1565c0);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.typing-bubble {
+  background: rgba(21, 101, 192, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  border-bottom-left-radius: 4px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.typing-label {
+  font-size: 0.78rem;
+  color: var(--blue-300);
+  opacity: 0.7;
+  white-space: nowrap;
+
+  /* Shimmer animation */
+  background: linear-gradient(90deg, #90caf9 25%, #e3f2fd 50%, #90caf9 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2s linear infinite;
+}
+
+.typing-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-dots span {
+  display: block;
+  width: 7px; height: 7px;
+  background: var(--blue-400);
+  border-radius: 50%;
+  animation: typingBounce 1.4s ease-in-out infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
